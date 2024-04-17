@@ -1,0 +1,6 @@
+# Exclude the configuration (YML) file and instead take the .7z file
+tabby/*.yml
+
+# Exclude the environment variables and the python virtual environment
+.env
+.venv
