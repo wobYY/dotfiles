@@ -1,69 +1,144 @@
-# Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+format = """
+[](fg:#ffffff)\      
+$os\
+[](fg:#ffffff bg:c2)\
+$directory\
+[](fg:c2 bg:#303030)\
+$git_branch\
+$fill\
+$nodejs\
+$dotnet\
+$python\
+$java\
+$c\
+$cmd_duration\
+$shell\
+[](fg:c4 bg:c2)\
+$time\
+[](fg:c2 bg:c1)\
+$username${custom.git_config_email_windows}${custom.git_config_email_linux}\
+[](fg:#004480)${custom.add_empty_lines_on_windows}\
+$line_break\
+$character\
+"""
 
-format = '''
-($os)($all)'''
-
-# Inserts a blank line between shell prompts
+palette = 'main'
 add_newline = true
 
-# Replace the '❯' symbol in the prompt with '➜'
-[character] # The name of the module we are configuring is 'character'
-success_symbol = '[└─>](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
-
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+[palettes.main]
+c1 = '#004480' # blue light
+c2 = '#002240' # blue dark
+c3 = '#c6e7ff' # blue extra light
+c4 = '#303030' # gray
+c5 = '#808080' # gray light
 
 [os]
+format = '[$symbol ](fg:#000000 bg:#ffffff)'
 disabled = false
 
-# This is the default symbols table.
 [os.symbols]
-AIX = "➿ "
-Alpaquita = "🔔 "
-AlmaLinux = "💠 "
-Alpine = "🏔️ "
-Amazon = "🙂 "
-Android = "🤖 "
-Arch = "🎗️ "
-Artix = "🎗️ "
-CentOS = "💠 "
-Debian = "🌀 "
-DragonFly = "🐉 "
-Emscripten = "🔗 "
-EndeavourOS = "🚀 "
-Fedora = "🎩 "
-FreeBSD = "😈 "
-Garuda = "🦅 "
-Gentoo = "🗜️ "
-HardenedBSD = "🛡️ "
-Illumos = "🐦 "
-Kali = "🐉 "
-Linux = "🐧 "
-Mabox = "📦 "
-Macos = "🍎 "
-Manjaro = "🥭 "
-Mariner = "🌊 "
-MidnightBSD = "🌘 "
-Mint = "🌿 "
-NetBSD = "🚩 "
-NixOS = "❄️ "
-OpenBSD = "🐡 "
-OpenCloudOS = "☁️ "
-openEuler = "🦉 "
-openSUSE = "🦎 "
-OracleLinux = "🦴 "
-Pop = "🍭 "
-Raspbian = "🍓 "
-Redhat = "🎩 "
-RedHatEnterprise = "🎩 "
-RockyLinux = "💠 "
-Redox = "🧪 "
-Solus = "⛵ "
-SUSE = "🦎 "
-Ubuntu = "🎯 "
-Ultramarine = "🔷 "
-Unknown = "❓ "
-Void = "  "
-Windows = "󰖳 "
+Alpine = ''
+Amazon = ''
+Android = ''
+Arch = ''
+CentOS = ''
+Debian = ''
+EndeavourOS = ''
+Fedora = ''
+FreeBSD = ''
+Garuda = ''
+Gentoo = ''
+Linux = ''
+Macos = ''
+Manjaro = ''
+Mariner = ''
+Mint = ''
+NetBSD = ''
+NixOS = ''
+OpenBSD = '' # ''
+OpenCloudOS = '☁️'
+openEuler = ''
+openSUSE = ''
+OracleLinux = '⊂⊃'
+Pop = '' # ''
+Raspbian = ''
+Redhat = ''
+RedHatEnterprise = ''
+Solus = '' # ' '
+SUSE = ''
+Ubuntu = ''
+Unknown = ''
+Windows = ''
+
+[directory]
+format = '[ 󰷏 $path ](fg:c3 bg:c2 italic)'
+truncation_length = 2
+
+[git_branch]
+format = '[ 󰘬 $branch ](fg:#808080 bg:c4)'
+
+[nodejs]
+format = '[ $symbol$version ](fg:#ffffff bg:c4)'
+
+[dotnet]
+format = '[ $symbol$tfm ](fg:#ffffff bg:c4)'
+symbol = ' .NET '
+
+[python]
+format = '[ $symbol$version ](fg:#ffffff bg:c4)'
+symbol = ' '
+
+[java]
+format = '[ $symbol$version ](fg:#ffffff bg:c4)'
+symbol = ' '
+
+[c]
+format = '[ $symbol$version ](fg:#ffffff bg:c4)'
+symbol = ' '
+
+[fill]
+style = 'fg:c5 bg:c4'
+symbol = '.'
+
+[cmd_duration]
+min_time = 500
+format = '[ $duration ](fg:yellow bg:c4 bold)'
+
+[shell]
+format = '[  $indicator ](c5 bg:c4)'
+unknown_indicator = 'shell'
+powershell_indicator = 'powershell'
+fish_indicator = 'fish'
+disabled = false
+
+[time]
+disabled = false
+format = '[ $time ](fg:c3 bg:c2)'
+time_format = '󰦖 %H:%M'
+
+[username]
+format = '[  $user ](fg:#ffffff bg:c1)'
+show_always = true
+
+[custom.git_config_email_windows]
+description = "Output the current git user's configured email address."
+command = "git config user.email"
+format = "[$symbol(  $output)](fg:#ffffff bg:c1)($style)"
+# Only when inside git repository
+when = "git rev-parse --is-inside-work-tree >nul 2>&1"
+os="windows"
+
+[custom.git_config_email_linux]
+description = "Output the current git user's configured email address."
+command = "git config user.email"
+format = "[$symbol(  $output)](fg:#ffffff bg:c1)($style)"
+# Only when inside git repository
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+os="!windows"
+
+[character]
+format = """
+[│](fg:c4)
+[╰──$symbol](fg:c4) """
+success_symbol = '[≫](fg:#ffffff)'
+error_symbol = '[×](bold red)'
