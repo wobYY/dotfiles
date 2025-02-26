@@ -85,7 +85,7 @@ format = '[ $symbol$tfm ](fg:#ffffff bg:c4)'
 symbol = ' .NET '
 
 [python]
-format = '[ $symbol$version ](fg:#ffffff bg:c4)'
+format = '[ $symbol$version  (\($virtualenv\) ) ](fg:#ffffff bg:c4)'
 symbol = ' '
 
 [java]
