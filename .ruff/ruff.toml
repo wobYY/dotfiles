@@ -1,0 +1,16 @@
+[tool.ruff]
+line-length = 100
+
+# Fix what you can
+fix = true
+
+[format]
+docstring-code-format = true
+
+[lint]
+fixable = ["ALL"]
+extend-select = ["E4", "E7", "E9", "F", "I", "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107"]
+# logger-objects = ["<custom logger>"]
+
+[lint.pydocstyle]
+convention = "google"
