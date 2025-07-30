@@ -1,0 +1,66 @@
+{
+    "editor.bracketPairColorization.enabled": true,
+    "editor.fontSize": 12,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.guides.bracketPairs": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.suggestSelection": "first",
+    "editor.fontFamily": "JetBrainsMono NF, Consolas, 'Courier New', monospace",
+
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "workbench.sideBar.location": "left",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.iconTheme": "vscode-icons",
+
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "notebook.lineNumbers": "on",
+    "notebook.output.scrolling": true,
+    "notebook.formatOnSave.enabled": true,
+    "notebook.codeActionsOnSave": {
+        "notebook.source.organizeImports": "explicit"
+    },
+    "notebook.defaultFormatter": "charliermarsh.ruff",
+
+    "json.indent": "4",
+
+    "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
+    "codesnap.containerPadding": "1em",
+    "codesnap.realLineNumbers": true,
+    "codesnap.showWindowControls": false,
+    "codesnap.shutterAction": "copy",
+    "codesnap.transparentBackground": true,
+
+    "git.autofetch": true,
+    
+    "indentRainbow.colors": [
+        "rgba(255,255,64,0.07)",
+        "rgba(127,255,127,0.07)",
+        "rgba(255,127,255,0.07)",
+        "rgba(79,236,236,0.07)"
+    ],
+
+    "sqltools.results.limit": 500,
+    "sqltools.results.location": "current",
+
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+
+    "[sql]": {
+        "editor.defaultFormatter": "mtxr.sqltools"
+    },
+    
+    "[restructuredtext]": {
+        "editor.wordWrap": "on"
+    },
+}
