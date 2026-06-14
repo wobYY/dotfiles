@@ -1,5 +1,8 @@
 # dotfiles
 
+# dotfiles symlinking
+I'm using [GNU stow](https://www.gnu.org/software/stow/manual/stow.html).
+
 # Prompt / Terminal
 I'm using the [ghostty](https://ghostty.org).
 

@@ -1,0 +1,5 @@
+[tasks.setup]
+description = "This sets up the most important dotfiles for me"
+run = """
+        stow tmux
+        stow starship"""
